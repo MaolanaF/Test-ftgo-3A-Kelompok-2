@@ -36,7 +36,7 @@ Skenario tes ini akan fokus pada endpoint berikut:
 
 
 ## Pengujian 
-### Pengujian Create Restaurant dengan data valid
+### 1. Pengujian Create Restaurant dengan data valid
 
 | Scenario      | Create Restaurant dengan data valid |
 |:--------------|:---------------------------------------------------------------------------------|
@@ -74,7 +74,7 @@ Skenario tes ini akan fokus pada endpoint berikut:
 }
 ```
 
-### Pengujian Create Restaurant dengan field tidak lengkap
+### 2. Pengujian Create Restaurant dengan field tidak lengkap
 | Scenario      | Create Restaurant dengan field tidak lengkap |
 |:--------------|:---------------------------------------------------------------------------------|
 | **Preconditions** | 1. Aplikasi FTGO sudah dijalankan<br>2. Data Restaurant belum ada di database | 
@@ -108,7 +108,7 @@ Skenario tes ini akan fokus pada endpoint berikut:
   "name": "Toko Kue Lebaran"
 }
 ```
-### Pengujian Get Restaurant yang terdapat di database
+### 3. Pengujian Get Restaurant yang terdapat di database
 | Scenario      | Get Restaurant yang terdapat di database |
 |:--------------|:---------------------------------------------------------------------------------|
 | **Preconditions** | 1. Aplikasi FTGO sudah dijalankan<br>2. Data Restaurant ada dengan restaurantId = 4 di database | 
@@ -118,7 +118,7 @@ Skenario tes ini akan fokus pada endpoint berikut:
 | **Test Result** | PASS |
 |**Test Data**  | restaurantId = 4 |
 
-### Pengujian Get Restaurant yang tidak ada di database
+### 4. Pengujian Get Restaurant yang tidak ada di database
 | Scenario      | Get Restaurant yang tidak ada di database|
 |:--------------|:---------------------------------------------------------------------------------|
 | **Preconditions** | 1. Aplikasi FTGO sudah dijalankan<br>2. Data Restaurant dengan restaurantId = 6 | 
@@ -128,7 +128,7 @@ Skenario tes ini akan fokus pada endpoint berikut:
 | **Test Result** | PASS |
 |**Test Data**  | restauranId = 6 |
 
-### Pengujian Create Consumer dengan data yang valid
+### 5. Pengujian Create Consumer dengan data yang valid
 | Scenario      | Create Consumer dengan data yang valid |
 |:--------------|:---------------------------------------------------------------------------------|
 | **Preconditions** | 1. Aplikasi FTGO sudah dijalankan<br>2. Data Costumer belum ada di database | 
@@ -145,7 +145,7 @@ Skenario tes ini akan fokus pada endpoint berikut:
   }
 }
 ```
-### Pengujian Create Consumer dengan field tidak lengkap 
+### 6. Pengujian Create Consumer dengan field tidak lengkap 
 | Scenario          | Create Cunsomer dengan field tidak lengkap                                           |
 |:------------------|:---------------------------------------------------------------------------------|
 | **Preconditions** | 1. Aplikasi FTGO sudah dijalankan<br>2. Data Consumer belum ada di database     | 
@@ -159,7 +159,17 @@ Skenario tes ini akan fokus pada endpoint berikut:
   "name": {
     "firstName": "Salahudin"
   }
-}
+```
+## 7. Pengujian Get Customer yang terdapat di database
+
+| Scenario          | Get Customer yang terdapat di database                                           |
+|:------------------|:---------------------------------------------------------------------------------|
+| **Preconditions** | 1. Aplikasi FTGO sudah dijalankan<br>2. Data Consumer sudah ada di database dengan id=2     | 
+| **Steps To Execute** | 1. Mengakses Swagger UI pada localhost:8084/swagger-ui/index.html<br>2. Klik consumer-controller<br>3. Klik GET /consumers/{consumerId}<br>4. Klik Try it Out<br>5. Masukkan Consumer Id<br>6. Klik Execute |
+| **Expected Result** | Data Consumer berhasil di GET dengan consumerId= 2 <br>{<br>  "consumerId": 2,<br>  "name": {<br>    "firstName": "Salahudin",<br>    "lastName": "Ilyas"<br>  }<br>}                                |
+| **Actual Result** | Data Consumer berhasil di GET dengan consumerId= 4 namun consumerId = 0 <br>{<br>  "consumerId": 0,<br>  "name": {<br>    "firstName": "Salahudin",<br>    "lastName": "Ilyas"<br>  }<br>}                                  |
+| **Test Result**   | FAIL                                                                           |
+| **Test Data**     | consumerId = 2     
 ```
 
 
