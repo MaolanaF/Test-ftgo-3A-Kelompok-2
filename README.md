@@ -169,6 +169,7 @@ Skenario tes ini akan fokus pada endpoint berikut:
 | **Expected Result** | Data Consumer berhasil di GET dengan consumerId= 2 <br>{<br>  "consumerId": 2,<br>  "name": {<br>    "firstName": "Salahudin",<br>    "lastName": "Ilyas"<br>  }<br>}                                |
 | **Actual Result** | Data Consumer berhasil di GET dengan consumerId= 4 namun consumerId = 0 <br>{<br>  "consumerId": 0,<br>  "name": {<br>    "firstName": "Salahudin",<br>    "lastName": "Ilyas"<br>  }<br>}                                  |
 | **Test Result**   | FAIL                                                                           |
+| **Test Data**     | consumerId = 2                                                                 |
 
 ## 8. Pengujian Get Customer yang tidak ada di database
 
@@ -180,8 +181,6 @@ Skenario tes ini akan fokus pada endpoint berikut:
 | **Actual Result** | Data Consumer tidak berhasil di GET dengan consumerId = 10 <br>Terjadi Error <br>Error: <br>Response headers<br> connection: keep-alive <br> content-length: 0 <br> date: Fri05 Apr 2024 16:54:29 GMT <br> keep-alive: timeout=60 |
 | **Test Result**   | PASS                                                                           |
 | **Test Data**     | ConsumerId = 10
-
-| **Test Data**     | consumerId = 2     
 ```
 
 
