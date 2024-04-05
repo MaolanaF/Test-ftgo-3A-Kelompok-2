@@ -80,5 +80,44 @@ Repositori ini merupakan skenario test dan pengujian yang dilakukan pada aplikas
   },
   "name": "Toko Kue Lebaran"
 }
-```|
+```
+### Pengujian Get Restaurant yang terdapat di database
+| Scenario      | Get Restaurant yang terdapat di database |
+|:--------------|:---------------------------------------------------------------------------------|
+| **Preconditions** | 1. Aplikasi FTGO sudah dijalankan<br>2. Data Restaurant ada dengan restaurantId = 4 di database | 
+| **Steps To Execute** | 1. Mengakses Swagger UI pada localhost:8084/swagger-ui/index.html<br>2. Klik restaurant-controller<br>3.Klik GET /restaurants/{restaurantId}<br>4. Klik Try it Out<br>5.  Masukkan restaurant Id <br>6. Klik Execute |
+| **Expected Result** | Data Restaurant berhasil di GET dengan restaurantId= 4 <br>{ "id": 4, "name": "Toko Kue Lebaran" } |
+| **Actual Result** |  Data Restaurant berhasil di GET dengan restaurantId= 4 <br>{ "id": 4, "name": "Toko Kue Lebaran" }  |
+| **Test Result** | PASS |
+|**Test Data**  | restaurantId = 4 |
+
+### Pengujian Get Restaurant yang tidak ada di database
+| Scenario      | Get Restaurant yang tidak ada di database|
+|:--------------|:---------------------------------------------------------------------------------|
+| **Preconditions** | 1. Aplikasi FTGO sudah dijalankan<br>2. Data Restaurant dengan restaurantId = 6 | 
+| **Steps To Execute** | 1. Mengakses Swagger UI pada localhost:8084/swagger-ui/index.html<br>2. Klik restaurant-controller<br>3. Klik GET /restaurants/{restaurantsId}<br>4. Klik Try it Out<br>5. Masukkan restaurant Id<br>6. Klik Execute |
+| **Expected Result** | Data restaurant tidak berhasil di GET dengan restaurantId = 6<br> Terjadi Error<br>Error:<br>Response headers<br>connection: keep-alive<br> content-length: 0 <br> date: Fri05 Apr 2024 15:46:50 GMT<br>keep-alive: timeout=60 |
+| **Actual Result** | Data restaurant tidak berhasil di GET dengan restaurantId = 6 <br> Terjadi Error<br>Error:<br>Response headers<br>connection: keep-alive<br> content-length: 0 <br> date: Fri05 Apr 2024 15:46:50 GMT<br>keep-alive: timeout=60 |
+| **Test Result** | PASS |
+|**Test Data**  | restauranId = 6 |
+
+### Pengujian Create Consumer dengan data yang valid
+| Scenario      | Create Consumer dengan data yang valid |
+|:--------------|:---------------------------------------------------------------------------------|
+| **Preconditions** | 1. Aplikasi FTGO sudah dijalankan<br>2. Data Costumer belum ada di database | 
+| **Steps To Execute** | 1. Mengakses Swagger UI pada localhost:8084/swagger-ui/index.html<br>2. Klik consumer-controller<br>3. Klik POST /consumer<br>4. Klik Try it Out<br>5. Masukkan restaurant ID <br>6. Klik Execute |
+| **Expected Result** | Data consumer berhasil disimpan di database |
+| **Actual Result** | Data consumer berhasil disimpan di database dan menghasilkan Result berikut: <br>{"consumerId": 2} |
+| **Test Result** | PASS |
+|**Test Data**  |
+```json
+{
+  "name": {
+    "firstName": "Salahudin",
+    "lastName": "Ilyas"
+  }
+}
+```
+
+
 
