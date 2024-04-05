@@ -145,6 +145,16 @@ Skenario tes ini akan fokus pada endpoint berikut:
   }
 }
 ```
+### Pengujian Create Consumer dengan field tidak lengkap 
+| Scenario          | Create Cunsomer dengan field tidak lengkap                                           |
+|:------------------|:---------------------------------------------------------------------------------|
+| **Preconditions** | 1. Aplikasi FTGO sudah dijalankan<br>2. Data Consumer belum ada di database     | 
+| **Steps To Execute** | 1. Mengakses Swagger UI pada localhost:8084/swagger-ui/index.html<br>2. Klik consumer-controller<br>3. Klik POST /consumers<br>4. Klik Try it Out<br>5. Masukkan restaurant Id<br>6. Klik Execute |
+| **Expected Result** | Data consumer tidak berhasil disimpan di database                                |
+| **Actual Result** | Data consumer berhasil disimpan di database dan menghasilkan Result berikut: <br>{"consumerId": 5} |
+| **Test Result**   | FAIL                                                                           |
+| **Test Data**     | ```json<br>{<br>  "name": {<br>    "firstName": "Salahudin"<br>  }<br>}<br>```  |
+
 
 
 
