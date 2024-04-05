@@ -8,6 +8,33 @@ Repositori ini merupakan skenario test dan pengujian yang dilakukan pada aplikas
 5. Yayang Setia Budi | 211524030
 6. Zacky Faishal Abror | 211524031
 
+## Ruang Lingkup
+
+Skenario tes ini akan fokus pada endpoint berikut:
+* /orders: Digunakan untuk menambahkan order baru.
+* /orders/{id}: Digunakan untuk mendapatkan detail order berdasarkan ID.
+* /orders/{id}/status: Digunakan untuk mengubah status order.
+* /orders/{id}/cancel: Digunakan untuk membatalkan order.
+
+
+## Scenario Test
+
+1. Penambahan Order
+   * Buat request POST ke endpoint /orders dengan data order yang valid.
+   * Validasi response code 201 Created.
+   * Validasi response body berisi data order yang baru dibuat.
+
+2. Perubahan Order
+   * Buat request PUT ke endpoint /orders/{id}/status dengan data status order yang baru.
+   * Validasi response code 200 OK.
+   * Validasi response body berisi data order yang telah diperbarui.
+
+3. Pembatalan Order
+   * Buat request POST ke endpoint /orders/{id}/cancel.
+   * Validasi response code 200 OK.
+   * Validasi response body berisi pesan Order telah dibatalkan.
+
+
 ## Pengujian 
 ### Pengujian Create Restaurant dengan data valid
 
