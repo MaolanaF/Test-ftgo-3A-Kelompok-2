@@ -153,7 +153,14 @@ Skenario tes ini akan fokus pada endpoint berikut:
 | **Expected Result** | Data consumer tidak berhasil disimpan di database                                |
 | **Actual Result** | Data consumer berhasil disimpan di database dan menghasilkan Result berikut: <br>{"consumerId": 5} |
 | **Test Result**   | FAIL                                                                           |
-| **Test Data**     | ```json<br>{<br>  "name": {<br>    "firstName": "Salahudin"<br>  }<br>}<br>```  |
+| **Test Data**     | 
+```json
+{
+  "name": {
+    "firstName": "Salahudin"
+  }
+}
+```
 
 
 
