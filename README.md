@@ -169,6 +169,18 @@ Skenario tes ini akan fokus pada endpoint berikut:
 | **Expected Result** | Data Consumer berhasil di GET dengan consumerId= 2 <br>{<br>  "consumerId": 2,<br>  "name": {<br>    "firstName": "Salahudin",<br>    "lastName": "Ilyas"<br>  }<br>}                                |
 | **Actual Result** | Data Consumer berhasil di GET dengan consumerId= 4 namun consumerId = 0 <br>{<br>  "consumerId": 0,<br>  "name": {<br>    "firstName": "Salahudin",<br>    "lastName": "Ilyas"<br>  }<br>}                                  |
 | **Test Result**   | FAIL                                                                           |
+
+## 8. Pengujian Get Customer yang tidak ada di database
+
+| Scenario          | Get Customer yang tidak ada di database                                           |
+|:------------------|:---------------------------------------------------------------------------------|
+| **Preconditions** | 1. Aplikasi FTGO sudah dijalankan<br>2. Data Consumer dengan id=10 belum ada di database     | 
+| **Steps To Execute** | 1. Mengakses Swagger UI pada localhost:8084/swagger-ui/index.html<br>2. Klik consumer-controller<br>3. Klik GET /consumers/{consumerId}<br>4. Klik Try it Out<br>5. Masukkan Consumer Id<br>6. Klik Execute |
+| **Expected Result** | Data Consumer tidak berhasil di GET dengan consumerId = 10 <br>Terjadi Error <br>Error: <br>Response headers<br> connection: keep-alive <br> content-length: 0 <br> date: Fri05 Apr 2024 16:54:29 GMT <br> keep-alive: timeout=60 |
+| **Actual Result** | Data Consumer tidak berhasil di GET dengan consumerId = 10 <br>Terjadi Error <br>Error: <br>Response headers<br> connection: keep-alive <br> content-length: 0 <br> date: Fri05 Apr 2024 16:54:29 GMT <br> keep-alive: timeout=60 |
+| **Test Result**   | PASS                                                                           |
+| **Test Data**     | ConsumerId = 10
+
 | **Test Data**     | consumerId = 2     
 ```
 
